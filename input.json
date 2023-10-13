@@ -1,0 +1,28 @@
+{
+  "customerName": "Tiểu Bá Vương",
+  "gender": "Nam",
+  "paymentRequest": [
+      {
+          "serviceName": "Bữa ăn sáng/trưa/tối",
+          "cash": 630000,
+          "note": ""
+      },
+      {
+          "serviceName": "Dịch vụ giặt/là quần áo",
+          "cash": 250000,
+          "note": "Thêm phí tẩy trắng quần áo"
+      },
+      {
+          "serviceName": "Dịch vụ gọi xe riêng",
+          "cash": 70000,
+          "note": ""
+      },
+      {
+          "serviceName": "Dịch vụ chăm sóc thú cưng",
+          "cash": 480000,
+          "note": ""
+      }
+  ],
+  "cashRemain": 450000,
+  "serviceRemain": 1
+}
