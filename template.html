@@ -6,6 +6,10 @@
         <h2>THÔNG BÁO DÀNH CHO KHÁCH HÀNG</h2> <br/>
         Kính gửi ông/bà {{ customerName }}      Quốc tịch: Việt Nam
 
+        {% macro format_number(my_num) -%}
+            {{ "{0:,.2f}".format(my_num)|replace(".", "#")|replace(",", ".")|replace("#", ",") }}
+        {%- endmacro %}
+
         <table class="table table-bordered table-without-space">
             <tr>
                 <td class="td-boder">STT</td>
@@ -18,15 +22,16 @@
             <tr>
                 <td class="td-boder"> {{ loop.index }} </td>
                 <td class="td-boder"> {{ item.serviceName }} </td>
-                <td class="td-boder">{{ item.cash }}</td>
+                <td class="td-boder">{{ format_number(item.cash) }}</td>
                 <td class="td-boder">{{ item['note'] }}</td>
             </tr>
             {% endfor %}
+            {% set total = paymentRequest|sum(attribute='cash') %}
             <tr>
                 <td class="td-boder"></td>
                 <td class="td-boder">Tổng cộng</td>
                 <td class="td-boder">
-                    {{ paymentRequest|sum(attribute='cash') }}
+                    {{ format_number(total) }}
                 </td>
                 <td class="td-boder"></td>
             </tr>
