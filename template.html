@@ -3,5 +3,23 @@
         <h2>THÔNG BÁO DÀNH CHO KHÁCH HÀNG</h2> <br/>
         Kính gửi ông/bà {{ customerName }}      Quốc tịch: Việt Nam
 
+        <table class="table-without-space">
+            <tr>
+                <td class="td-boder">STT</td>
+                <td class="td-boder">Tên hạng mục</td>
+                <td class="td-boder">Số tiền</td>
+                <td class="td-boder">Ghi chú</td>
+            </tr>
+            
+            {% for item in paymentRequest %}
+            <tr>
+                <td class="td-boder"> {{ loop.index }} </td>
+                <td class="td-boder"> {{ item.serviceName }} </td>
+                <td class="td-boder">{{ item.cash }}</td>
+                <td class="td-boder">{{ item['note'] }}</td>
+            </tr>
+            {% endfor %}
+        </table> <br/>
+        
     </body>
 </html>
