@@ -36,6 +36,26 @@
                 <td class="td-boder"></td>
             </tr>
         </table> <br/>
+        Sau khi trừ số tiền trên, trong tài khoản lưu ký của quý khách còn lại {{ format_number(cashRemain) }} VND. <br/>
+        
+        
+        
+        {% macro display_not_enough(remain_cash, service_remain) -%}
+            {% set not_enough_week = 1 %}
+            {% if (service_remain <= not_enough_week) and (remain_cash < total) %}
+                    <b>không</b>
+            {% endif %}
+        {%- endmacro %}
+        
+        Dự kiến {{ display_not_enough(cashRemain, serviceRemain)}} đủ để duy trì dịch vụ trong <b> {{ serviceRemain }} tuần</b> tiếp theo. <br/>
+
+        {# Định nghĩa biến dữ liệu noti_remain_week đại diện cho số tuần tương ứng sẽ hiển thị thông báo #}
+        {% set noti_remain_week = 3 %}
+        {% if (serviceRemain <= noti_remain_week)   %}
+        Đề nghị quý khách nạp thêm tiền vào tài khoản lưu ký để các dịch vụ có thể cung cấp đúng theo yêu cầu. <br/>
+        {% endif %}
+
+        Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi. <br/>
 
     </body>
 </html>
