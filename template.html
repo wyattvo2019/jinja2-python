@@ -1,9 +1,12 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
     <body>
         <h2>THÔNG BÁO DÀNH CHO KHÁCH HÀNG</h2> <br/>
         Kính gửi ông/bà {{ customerName }}      Quốc tịch: Việt Nam
 
-        <table class="table-without-space">
+        <table class="table table-bordered table-without-space">
             <tr>
                 <td class="td-boder">STT</td>
                 <td class="td-boder">Tên hạng mục</td>
@@ -19,7 +22,15 @@
                 <td class="td-boder">{{ item['note'] }}</td>
             </tr>
             {% endfor %}
+            <tr>
+                <td class="td-boder"></td>
+                <td class="td-boder">Tổng cộng</td>
+                <td class="td-boder">
+                    {{ paymentRequest|sum(attribute='cash') }}
+                </td>
+                <td class="td-boder"></td>
+            </tr>
         </table> <br/>
-        
+
     </body>
 </html>
